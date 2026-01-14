@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/style.css" />
+    <title>elliott-ai</title>
+  </head>
+  <body>
+    <section id="elliott-ai">
+        <div class="page-container elliott-ai-grid">
+            <div class="ai-copy">
+                <p class="eyebrow">Ask Elliott-AI</p>
+                <h2>💬  Ask me anything about my work</h2>
+                <p>Curious about projects, tech stack choices, or how I solve problems?</p>
+                <p>Drop a question and Elliott-AI will pull answers straight from my extensive career docs, project write-ups, resumé, etc.</p>
+                <ul class="ai-highlights">
+                    <li>Sourced from my professional career docs and factual data</li>
+                    <li>Hybrid vector + keyword recall</li>
+                    <li>Fast, intelligent, streaming responses</li>
+                </ul>
+                <p><small class="ai-footnote">To learn more about "Elliott-AI" and learn exactly how I developed the full build: data pipeline, chunking, embeddings, vector storage, retrieval, and the streaming data API endpoint, you can read my blog article, <a href="https://blog.elliottprogrammer.com/building-elliott-ai-a-rag-agent-that-knows-my-career-better-than-i-do/">Building Elliott-AI: A RAG Agent That Knows My Career Better Than I Do!</a></small></p>
+
+            </div>
+            <div class="ai-chat-card">
+                <div class="chat-header">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                    <span class="chat-title">Elliott-AI</span>
+                </div>
+                <div id="elliott-ai-log" class="chat-log" aria-live="polite">
+                    <div class="chat-message assistant">
+                        <div class="bubble two-colum">
+                            <span>👋 Hi, I'm Elliott-AI,<br /><br />I'm an AI assistant trained to know everything about <strong>Bryan Elliott (Senior Full-Stack Engineer)</strong>.<br /><br />Ask me anything about his career, skills, experience, projects, etc.</span>
+                            <span><img src="public/elliott-AI-character[profile]150.png" class="user-profile responsive" alt="Elliott-AI profile Image" /></span>
+                        </div>
+                    </div>
+                    <div id="ai-example-questions">
+                        <span class="questions-heading">Example Questions</span>
+                        <button data-question="What was Bryan's favorite, most impactful engineering project?">What was Bryan's most impactful engineering project?</button>
+                        <button data-question="What set's Bryan apart from most other developers?">What set's Bryan apart from most other developers?</button>
+                        <button data-question="What are some of Bryan's career highlights?">What are some of Bryan's career highlights?</button>
+                    </div>
+                </div>
+                <div class="ai-footer">
+                    <form id="elliott-ai-form" class="chat-form">
+                        <input id="elliott-ai-input" type="text" name="question" placeholder="Ask about Bryan’s projects, skills, or experience..." autocomplete="off" />
+                        <button id="elliott-ai-submit" type="submit">Ask</button>
+                    </form>
+                    <p class="chat-hint"><strong>Elliott-AI&trade;</strong> &mdash; <em>Powered by my real experience.</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
