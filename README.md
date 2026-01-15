@@ -9,7 +9,9 @@ The [blog post](https://blog.elliottprogrammer.com/building-elliott-ai-a-rag-age
 
 You can view a live demo of **Ask Elliott-AI** in action on my dev portfolio website at: [https://elliottprogrammer.com](https://elliottprogrammer.com)
 
-![Screenshot](https://blog.elliottprogrammer.com/wp-content/uploads/2026/01/Elliott-AI-UI-section-1024x591.png)
+<hr/>
+
+![elliott-ai_ui-screen-capture](https://github.com/user-attachments/assets/5efd88f6-65ef-4acd-a3b9-6c536882c982)
 
 ## Getting Started
 
