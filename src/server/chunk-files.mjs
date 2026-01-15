@@ -5,13 +5,16 @@ import { createClient } from "@supabase/supabase-js";
 import { OpenAIEmbeddings } from "@langchain/openai";
 import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
 import { encoding_for_model } from "@dqbd/tiktoken";
-if (process.env.NODE_ENV !== 'production') {
-    const dotenv = await import('dotenv');
-    dotenv.config({ path: "/Users/bryan/Projects/elliottprogrammer.com/.env" });
-}
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+if (process.env.NODE_ENV !== 'production') {
+    const dotenv = await import('dotenv');
+    const envPath = path.resolve(__dirname, "../../.env");
+    dotenv.config({ path: envPath });
+}
+
 const documentsDir = path.resolve(__dirname, "documents");
 
 const SUPABASE_URL = process.env.SUPABASE_URL;

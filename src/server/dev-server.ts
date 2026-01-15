@@ -1,7 +1,19 @@
-import express from "express";
-import { streamAnswer } from "./query-vector-store.mjs";
+import express, { type Request, type Response } from "express";
+import { streamAnswer } from "./query-vector-store.ts";
 
-const corsHeaders = {
+type Match = {
+  content?: string;
+  source?: string;
+  chunk?: string | number;
+  score?: number;
+  strategy?: string;
+};
+
+type StreamAnswerResult = {
+  matches: Match[];
+};
+
+const corsHeaders: Record<string, string> = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "Content-Type",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
@@ -10,25 +22,27 @@ const corsHeaders = {
 const app = express();
 app.use(express.json());
 
-const applyCors = (res) => {
+const applyCors = (res: Response) => {
   for (const [key, value] of Object.entries(corsHeaders)) {
     res.setHeader(key, value);
   }
 };
 
-app.options("/elliott-ai", (req, res) => {
+app.options("/elliott-ai", (_req: Request, res: Response) => {
   applyCors(res);
   res.sendStatus(200);
 });
 
-app.post("/elliott-ai", async (req, res) => {
+app.post("/elliott-ai", async (req: Request, res: Response) => {
   applyCors(res);
 
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
 
-  const question = (req.body?.question || "").trim();
+  const questionInput =
+    typeof req.body?.question === "string" ? req.body.question : "";
+  const question = questionInput.trim();
   if (!question) {
     return res
       .status(400)
@@ -41,9 +55,12 @@ app.post("/elliott-ai", async (req, res) => {
   res.flushHeaders();
 
   try {
-    const { matches } = await streamAnswer(question, (token) => {
-      res.write(`data: ${JSON.stringify({ type: "token", token })}\n\n`);
-    });
+    const { matches } = (await streamAnswer(
+      question,
+      (token: string) => {
+        res.write(`data: ${JSON.stringify({ type: "token", token })}\n\n`);
+      }
+    )) as StreamAnswerResult;
 
     res.write(`data: ${JSON.stringify({ type: "metadata", matches })}\n\n`);
     res.write(`data: ${JSON.stringify({ type: "done" })}\n\n`);

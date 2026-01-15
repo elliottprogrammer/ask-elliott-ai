@@ -54,7 +54,7 @@ Follow these steps to get your development environment set up and running.
     * `OPENAI_API_KEY="Your OpenAI API key"`
 
 4.  **Set up the Supabase database**:
-    See my [blog article](https://blog.elliottprogrammer.com/building-elliott-ai-a-rag-agent-that-knows-my-career-better-than-i-do/) for Supabase database and table specifics.
+    See my [blog article](https://blog.elliottprogrammer.com/building-elliott-ai-a-rag-agent-that-knows-my-career-better-than-i-do/#the-data-layer) for Supabase database and table specifics.
 
 5.  **Chunk up the documents and insert the chunks and embeddings in the Supabase vector store:**
     (Or you can replce the existing doments (in `src/server/documents`) with your own markdown files.)
