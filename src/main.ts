@@ -48,7 +48,7 @@ window.addEventListener('DOMContentLoaded', () => {
             let buffer: string | undefined = '';
 
             try {
-                const response = await fetch('/.netlify/functions/elliott-ai', {
+                const response = await fetch('http://localhost:8888/elliott-ai', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

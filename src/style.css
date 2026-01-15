@@ -314,3 +314,34 @@ span.chat-title {
     border-bottom-right-radius: 5px;
     background-color: #071419;
 }
+
+/* AI Loading text. */
+.loading {
+    font-size: .7rem;
+    line-height: 1;
+}
+.loading::after {
+    content: "   "; 
+    animation: dot-steps .8s infinite steps(4);
+    overflow: hidden; 
+    display: inline;
+    vertical-align: baseline;
+    font-family: monospace;
+    font-size: .7em;
+}
+
+@keyframes dot-steps {
+    /* Define the frames for the steps animation */
+    0% {
+        content: ".  "; /* One dot */
+    }
+    33.3% {
+        content: ".. "; /* Two dots */
+    }
+    66.6% {
+        content: "..."; /* Three dots */
+    }
+    100% {
+        content: "   "; /* Back to one dot, but the infinite loop handles the jump */
+    }
+}

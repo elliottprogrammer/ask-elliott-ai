@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:server": "NODE_ENV=development node src/server/dev-server.mjs",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
@@ -13,15 +14,18 @@
     "@langchain/openai": "^1.2.0",
     "@netlify/blobs": "^10.5.0",
     "@netlify/functions": "^5.1.2",
-    "@supabase/supabase-js": "^2.89.0"
+    "@supabase/supabase-js": "^2.89.0",
+    "@types/express": "^5.0.6",
+    "express": "^5.2.1",
+    "ts-node": "^10.9.2"
   },
   "devDependencies": {
-    "typescript": "~5.9.3",
-    "vite": "^7.2.4",
-    "dotenv": "^16.4.5",
     "@langchain/classic": "^1.0.7",
     "@langchain/community": "^1.1.1",
     "@langchain/core": "^1.1.8",
-    "@langchain/textsplitters": "^1.0.1"
+    "@langchain/textsplitters": "^1.0.1",
+    "dotenv": "^16.4.5",
+    "typescript": "~5.9.3",
+    "vite": "^7.2.4"
   }
 }

@@ -4,7 +4,7 @@ import { OpenAIEmbeddings, ChatOpenAI } from "@langchain/openai";
 import { encoding_for_model } from "@dqbd/tiktoken";
 if (process.env.NODE_ENV !== 'production') {
     const dotenv = await import('dotenv');
-    dotenv.config({ path: "/Users/bryan/Projects/elliottprogrammer.com/.env" });
+    dotenv.config({ path: "/Users/bryan/Projects/ask-elliott-ai/.env" });
 }
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_KEY = process.env.SUPABASE_SECRET_API_KEY;
