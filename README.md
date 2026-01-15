@@ -61,7 +61,7 @@ Follow these steps to get your development environment set up and running.
 5.  **Chunk up the documents and insert the chunks and embeddings in the Supabase vector store:**
     (Or you can replce the existing doments (in `src/server/documents`) with your own markdown files.)
 
-    Then run:
+    Chunk and insert documents by running:
 
     ```bash
     node ./src/server/chunk-files.mjs
